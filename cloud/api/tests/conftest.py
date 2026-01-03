@@ -1,5 +1,8 @@
 """
 Pytest fixtures for cloud API tests.
+
+These tests are designed to be isolated unit tests that don't require
+database connections or external dependencies.
 """
 
 import pytest
@@ -7,14 +10,6 @@ import asyncio
 from unittest.mock import MagicMock, AsyncMock
 from uuid import uuid4
 from datetime import datetime
-
-from fastapi.testclient import TestClient
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.orm import sessionmaker
-
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 
 @pytest.fixture(scope="session")
@@ -27,13 +22,15 @@ def event_loop():
 
 @pytest.fixture
 def mock_db_session():
-    """Create a mock database session."""
-    session = MagicMock(spec=AsyncSession)
+    """Create a mock database session that mimics SQLAlchemy AsyncSession behavior."""
+    session = MagicMock()
+    # Async methods
     session.execute = AsyncMock()
     session.commit = AsyncMock()
     session.refresh = AsyncMock()
+    # Sync methods (important: these should NOT be async)
     session.add = MagicMock()
-    session.delete = MagicMock()
+    session.delete = MagicMock()  # This is sync in SQLAlchemy!
     return session
 
 
