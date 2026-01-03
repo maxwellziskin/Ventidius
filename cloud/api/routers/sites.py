@@ -130,7 +130,7 @@ async def delete_site(
     if not site:
         raise HTTPException(status_code=404, detail="Site not found")
 
-    await db.delete(site)
+    db.delete(site)
     await db.commit()
 
     logger.info("Site deleted", site_id=str(site_id))

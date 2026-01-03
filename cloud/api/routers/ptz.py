@@ -6,7 +6,7 @@ PTZ (Pan-Tilt-Zoom) camera control endpoints.
 
 from fastapi import APIRouter, HTTPException, Request, WebSocket, WebSocketDisconnect
 from sqlalchemy import select
-from typing import List
+from typing import List, Dict
 from uuid import UUID
 import asyncio
 import json
@@ -23,7 +23,7 @@ router = APIRouter()
 logger = structlog.get_logger(__name__)
 
 # Store for active WebSocket connections to edge devices
-edge_connections: dict[str, WebSocket] = {}
+edge_connections: Dict[str, WebSocket] = {}
 
 
 @router.post("/cameras/{camera_id}/ptz")
@@ -199,7 +199,7 @@ async def delete_preset(
     if not preset:
         raise HTTPException(status_code=404, detail="Preset not found")
 
-    await db.delete(preset)
+    db.delete(preset)
     await db.commit()
 
     logger.info("PTZ preset deleted", preset_id=str(preset_id))

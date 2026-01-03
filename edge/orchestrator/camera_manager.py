@@ -8,9 +8,9 @@ import asyncio
 import aiohttp
 import structlog
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List, Dict
 
-from config import CameraConfig
+from .config import CameraConfig
 
 logger = structlog.get_logger(__name__)
 
@@ -42,13 +42,13 @@ class CameraStatus:
 class CameraManager:
     """Manages camera connectivity and status."""
 
-    def __init__(self, cameras: list[CameraConfig]):
+    def __init__(self, cameras: List[CameraConfig]):
         self.cameras = {cam.id: cam for cam in cameras}
-        self.status: dict[str, CameraStatus] = {
+        self.status: Dict[str, CameraStatus] = {
             cam.id: CameraStatus(cam.id) for cam in cameras
         }
 
-    async def verify_all_cameras(self) -> dict[str, bool]:
+    async def verify_all_cameras(self) -> Dict[str, bool]:
         """Verify connectivity for all cameras."""
         logger.info("Verifying camera connectivity", count=len(self.cameras))
 
@@ -144,7 +144,7 @@ class CameraManager:
         except Exception:
             return False
 
-    async def get_status(self) -> list[dict]:
+    async def get_status(self) -> List[dict]:
         """Get status for all cameras."""
         return [status.to_dict() for status in self.status.values()]
 

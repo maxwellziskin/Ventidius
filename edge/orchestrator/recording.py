@@ -7,13 +7,13 @@ Handles continuous recording with FFmpeg, including burned-in timestamps.
 import asyncio
 import subprocess
 import signal
+import sys
 import structlog
 from pathlib import Path
 from datetime import datetime, timedelta
-from typing import Optional
-import os
+from typing import Optional, Dict, List
 
-from config import StorageConfig, RecordingConfig, CameraConfig
+from .config import StorageConfig, RecordingConfig, CameraConfig
 
 logger = structlog.get_logger(__name__)
 
@@ -45,12 +45,12 @@ class RecordingManager:
         self,
         storage_config: StorageConfig,
         recording_config: RecordingConfig,
-        cameras: list[CameraConfig]
+        cameras: List[CameraConfig]
     ):
         self.storage_config = storage_config
         self.recording_config = recording_config
         self.cameras = {cam.id: cam for cam in cameras}
-        self.recordings: dict[str, RecordingProcess] = {}
+        self.recordings: Dict[str, RecordingProcess] = {}
         self.running = False
         self._segment_task: Optional[asyncio.Task] = None
 
@@ -130,12 +130,15 @@ class RecordingManager:
         )
 
         try:
-            process = subprocess.Popen(
-                cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
-            )
+            # preexec_fn is Unix-only; skip on Windows
+            popen_kwargs = {
+                "stdout": subprocess.PIPE,
+                "stderr": subprocess.PIPE,
+            }
+            if sys.platform != "win32":
+                popen_kwargs["preexec_fn"] = lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+            process = subprocess.Popen(cmd, **popen_kwargs)
 
             recording = RecordingProcess(camera.id, output_path)
             recording.process = process
@@ -311,7 +314,7 @@ class RecordingManager:
         camera_id: str,
         start_time: datetime,
         end_time: datetime
-    ) -> list[Path]:
+    ) -> List[Path]:
         """Get list of recording files for a camera within a time range."""
         storage_path = Path(self.storage_config.path)
         camera_path = storage_path / camera_id

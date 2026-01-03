@@ -8,13 +8,13 @@ import asyncio
 import aiohttp
 import structlog
 from pathlib import Path
-from datetime import datetime
-from typing import Optional
+from datetime import datetime, timedelta
+from typing import Optional, List
 import subprocess
 import tempfile
 import os
 
-from config import StorageConfig, CloudConfig
+from .config import StorageConfig, CloudConfig
 
 logger = structlog.get_logger(__name__)
 
@@ -231,9 +231,8 @@ class ExportHandler:
                         )
 
                         # Check if file overlaps with requested range
-                        file_end = file_time.replace(
-                            minute=file_time.minute + 30
-                        )
+                        # Use timedelta for correct time arithmetic
+                        file_end = file_time + timedelta(minutes=30)
 
                         if file_time <= request.end_time and file_end >= request.start_time:
                             recording_files.append(file)
@@ -241,9 +240,8 @@ class ExportHandler:
                     except ValueError:
                         continue
 
-            current_date = current_date.replace(
-                day=current_date.day + 1
-            )
+            # Use timedelta for correct date arithmetic
+            current_date = current_date + timedelta(days=1)
 
         if not recording_files:
             return None
@@ -301,7 +299,7 @@ class ExportHandler:
 
         await process.wait()
 
-    async def _concat_videos(self, input_files: list[Path], output_path: Path):
+    async def _concat_videos(self, input_files: List[Path], output_path: Path):
         """Concatenate multiple video files."""
         # Create concat list file
         concat_file = output_path.parent / f"{output_path.stem}_concat.txt"
@@ -326,7 +324,14 @@ class ExportHandler:
             stderr=asyncio.subprocess.PIPE
         )
 
-        await process.wait()
+        stdout, stderr = await process.communicate()
+
+        if process.returncode != 0:
+            logger.error(
+                "FFmpeg concat failed",
+                returncode=process.returncode,
+                stderr=stderr.decode() if stderr else ""
+            )
 
         # Clean up concat file
         concat_file.unlink(missing_ok=True)

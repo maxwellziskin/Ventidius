@@ -5,7 +5,7 @@ Wrapper around onvif-zeep for PTZ camera control.
 """
 
 import asyncio
-from typing import Optional
+from typing import Optional, List, Dict
 import structlog
 
 logger = structlog.get_logger(__name__)
@@ -166,7 +166,7 @@ class ONVIFClient:
 
         return await loop.run_in_executor(None, _set)
 
-    async def get_presets(self) -> list[dict]:
+    async def get_presets(self) -> List[dict]:
         """Get list of presets."""
         if not self._connected or not self._ptz_service:
             raise RuntimeError("Not connected to camera")
@@ -214,7 +214,7 @@ class ONVIFClient:
 
         return await loop.run_in_executor(None, _get)
 
-    async def get_configurations(self) -> list[dict]:
+    async def get_configurations(self) -> List[dict]:
         """Get PTZ configurations."""
         if not self._connected or not self._ptz_service:
             raise RuntimeError("Not connected to camera")

@@ -138,7 +138,7 @@ async def cancel_export(
     if export.status not in ["pending", "processing"]:
         raise HTTPException(status_code=400, detail="Cannot cancel completed or failed export")
 
-    await db.delete(export)
+    db.delete(export)
     await db.commit()
 
     logger.info("Export request cancelled", export_id=str(export_id))

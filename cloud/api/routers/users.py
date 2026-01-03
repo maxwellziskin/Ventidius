@@ -147,7 +147,7 @@ async def delete_user(
     if user.id == admin.id:
         raise HTTPException(status_code=400, detail="Cannot delete yourself")
 
-    await db.delete(user)
+    db.delete(user)
     await db.commit()
 
     logger.info("User deleted", user_id=str(user_id))

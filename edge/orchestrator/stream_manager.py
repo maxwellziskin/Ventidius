@@ -7,12 +7,13 @@ Manages MediaMTX for RTSP ingestion and HLS output.
 import asyncio
 import subprocess
 import signal
+import sys
 import structlog
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List
 import yaml
 
-from config import MediaMTXConfig, CameraConfig
+from .config import MediaMTXConfig, CameraConfig
 
 logger = structlog.get_logger(__name__)
 
@@ -20,7 +21,7 @@ logger = structlog.get_logger(__name__)
 class StreamManager:
     """Manages MediaMTX streaming server."""
 
-    def __init__(self, config: MediaMTXConfig, cameras: list[CameraConfig]):
+    def __init__(self, config: MediaMTXConfig, cameras: List[CameraConfig]):
         self.config = config
         self.cameras = cameras
         self.process: Optional[subprocess.Popen] = None
@@ -35,11 +36,16 @@ class StreamManager:
 
         # Start MediaMTX process
         try:
+            popen_kwargs = {
+                "stdout": subprocess.PIPE,
+                "stderr": subprocess.PIPE
+            }
+            if sys.platform != "win32":
+                popen_kwargs["preexec_fn"] = lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
+
             self.process = subprocess.Popen(
                 ["mediamtx", self.config.config_path],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
+                **popen_kwargs
             )
             self.running = True
 

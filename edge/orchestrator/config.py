@@ -9,7 +9,7 @@ import re
 import yaml
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Optional, List
 
 
 @dataclass
@@ -84,7 +84,7 @@ class SiteConfig:
     mediamtx: MediaMTXConfig
     health: HealthConfig
     recording: RecordingConfig
-    cameras: list[CameraConfig] = field(default_factory=list)
+    cameras: List[CameraConfig] = field(default_factory=list)
 
 
 def substitute_env_vars(value: str) -> str:

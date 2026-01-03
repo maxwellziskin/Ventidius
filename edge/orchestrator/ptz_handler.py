@@ -6,13 +6,13 @@ Handles PTZ (Pan-Tilt-Zoom) control via ONVIF protocol.
 
 import asyncio
 import structlog
-from typing import Optional
+from typing import Optional, List, Dict
 from datetime import datetime
 import websockets
 import json
 
-from config import CameraConfig, CloudConfig
-from utils.onvif_client import ONVIFClient
+from .config import CameraConfig, CloudConfig
+from .utils.onvif_client import ONVIFClient
 
 logger = structlog.get_logger(__name__)
 
@@ -44,11 +44,11 @@ class PTZHandler:
     RATE_LIMIT_WINDOW = 1.0
     MAX_COMMANDS_PER_WINDOW = 10
 
-    def __init__(self, cameras: list[CameraConfig]):
+    def __init__(self, cameras: List[CameraConfig]):
         self.cameras = {cam.id: cam for cam in cameras if cam.ptz}
-        self.onvif_clients: dict[str, ONVIFClient] = {}
-        self.presets: dict[str, list[PTZPreset]] = {}
-        self.command_timestamps: dict[str, list[datetime]] = {}
+        self.onvif_clients: Dict[str, ONVIFClient] = {}
+        self.presets: Dict[str, List[PTZPreset]] = {}
+        self.command_timestamps: Dict[str, List[datetime]] = {}
         self.running = False
         self._ws_task: Optional[asyncio.Task] = None
 
@@ -264,7 +264,7 @@ class PTZHandler:
             )
             return None
 
-    def get_presets(self, camera_id: str) -> list[dict]:
+    def get_presets(self, camera_id: str) -> List[dict]:
         """Get presets for a camera."""
         if camera_id not in self.presets:
             return []

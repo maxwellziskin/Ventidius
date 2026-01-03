@@ -12,7 +12,7 @@ from typing import Callable, Optional
 import platform
 import psutil
 
-from config import CloudConfig, HealthConfig
+from .config import CloudConfig, HealthConfig
 
 logger = structlog.get_logger(__name__)
 
