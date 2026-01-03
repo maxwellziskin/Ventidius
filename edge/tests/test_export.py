@@ -18,7 +18,7 @@ from orchestrator.config import StorageConfig, CloudConfig
 
 
 class TestExportRequest:
-    """Tests for ExportRequest dataclass."""
+    """Tests for ExportRequest class."""
 
     def test_init(self):
         """Test ExportRequest initialization."""
@@ -26,16 +26,35 @@ class TestExportRequest:
         end = datetime(2024, 1, 1, 11, 0, 0)
 
         request = ExportRequest(
-            id="export1",
+            request_id="export1",
             camera_id="cam1",
             start_time=start,
             end_time=end
         )
 
-        assert request.id == "export1"
+        assert request.request_id == "export1"
         assert request.camera_id == "cam1"
         assert request.start_time == start
         assert request.end_time == end
+        assert request.status == "pending"
+
+    def test_to_dict(self):
+        """Test ExportRequest serialization."""
+        start = datetime(2024, 1, 1, 10, 0, 0)
+        end = datetime(2024, 1, 1, 11, 0, 0)
+
+        request = ExportRequest(
+            request_id="export1",
+            camera_id="cam1",
+            start_time=start,
+            end_time=end
+        )
+
+        result = request.to_dict()
+
+        assert result["request_id"] == "export1"
+        assert result["camera_id"] == "cam1"
+        assert result["status"] == "pending"
 
 
 class TestExportHandler:
@@ -68,51 +87,21 @@ class TestExportHandler:
         assert export_handler.storage_config == storage_config
         assert export_handler.cloud_config == cloud_config
         assert export_handler.running is False
-        assert len(export_handler.pending_exports) == 0
+        assert export_handler.queue is not None
 
     @pytest.mark.asyncio
-    async def test_find_recording_files_no_files(self, export_handler):
-        """Test finding recordings when no files exist."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            export_handler.storage_config.path = tmpdir
+    async def test_start_stop_lifecycle(self, export_handler):
+        """Test ExportHandler start/stop lifecycle."""
+        # Start handler
+        await export_handler.start()
+        assert export_handler.running is True
+        assert export_handler._session is not None
+        assert export_handler._poll_task is not None
+        assert export_handler._process_task is not None
 
-            start = datetime(2024, 1, 1, 10, 0)
-            end = datetime(2024, 1, 1, 11, 0)
-
-            files = await export_handler._find_recording_files("cam1", start, end)
-            assert files == []
-
-    @pytest.mark.asyncio
-    async def test_find_recording_files_with_files(self, export_handler):
-        """Test finding recordings with matching files."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            export_handler.storage_config.path = tmpdir
-
-            # Create test recording files
-            cam_dir = Path(tmpdir) / "cam1" / "2024-01-01"
-            cam_dir.mkdir(parents=True)
-
-            # Create a file within the time range
-            test_file = cam_dir / "10-00-00.mp4"
-            test_file.touch()
-
-            start = datetime(2024, 1, 1, 10, 0)
-            end = datetime(2024, 1, 1, 11, 0)
-
-            files = await export_handler._find_recording_files("cam1", start, end)
-            assert len(files) == 1
-            assert str(files[0]).endswith("10-00-00.mp4")
-
-    @pytest.mark.asyncio
-    async def test_update_export_status(self, export_handler):
-        """Test updating export status via API."""
-        with patch('aiohttp.ClientSession.put', new_callable=AsyncMock) as mock_put:
-            mock_response = MagicMock()
-            mock_response.status = 200
-            mock_put.return_value.__aenter__.return_value = mock_response
-
-            await export_handler._update_export_status("export1", "processing")
-            # Verify the method doesn't raise an exception
+        # Stop handler
+        await export_handler.stop()
+        assert export_handler.running is False
 
     @pytest.mark.asyncio
     async def test_stop(self, export_handler):
