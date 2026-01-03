@@ -1,0 +1,18 @@
+[Unit]
+Description=Ziskin Field Systems UPS Monitor
+Documentation=https://github.com/ziskin-field-systems/edge
+After=apcupsd.service
+Requires=apcupsd.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/opt/ziskin/ups-monitor.sh
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=zfs-ups-monitor
+
+[Install]
+WantedBy=multi-user.target
