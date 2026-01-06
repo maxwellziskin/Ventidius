@@ -65,9 +65,9 @@ class TestChordProgressions(unittest.TestCase):
         for song, chords in self.songs.items():
             # Should have pipe separators
             self.assertIn('|', chords, f"{song} should have | separators in chords")
-            # Should have at least 2 chords
+            # Should have exactly 8 chords for the chordbox
             chord_list = [c.strip() for c in chords.split('|')]
-            self.assertGreaterEqual(len(chord_list), 2, f"{song} should have at least 2 chords")
+            self.assertEqual(len(chord_list), 8, f"{song} should have exactly 8 chords (got {len(chord_list)})")
 
     def test_chords_are_valid(self):
         """Test that chord names are valid music notation."""
@@ -89,9 +89,9 @@ class TestChordProgressions(unittest.TestCase):
         song = "Do It Again"
         self.assertIn(song, self.songs, f"'{song}' should be in the file")
         chords = self.songs[song]
-        # Do It Again is famously in Em/Am - verify minor chords present
-        self.assertTrue('Em' in chords or 'Am' in chords,
-            f"'{song}' should contain Em or Am chords (got: {chords})")
+        # Do It Again is in Gm with Cm and Dm - verify minor chords present
+        self.assertTrue('Gm' in chords or 'Cm' in chords or 'Dm' in chords,
+            f"'{song}' should contain Gm, Cm, or Dm chords (got: {chords})")
         print(f"\n{song}: {chords} ✓")
 
     def test_reelin_in_the_years_chords(self):
@@ -169,9 +169,9 @@ class TestChordProgressions(unittest.TestCase):
         song = "I.G.Y. (What a Beautiful World)"
         self.assertIn(song, self.songs, f"'{song}' should be in the file")
         chords = self.songs[song]
-        # I.G.Y. uses Fmaj7 prominently
-        self.assertTrue('Fmaj7' in chords,
-            f"'{song}' should contain Fmaj7 chord (got: {chords})")
+        # I.G.Y. uses G#m7, C#m9, Emaj9, F#11 in the original key
+        self.assertTrue('G#m7' in chords or 'Emaj' in chords or 'Bmaj7' in chords,
+            f"'{song}' should contain G#m7, Emaj9, or Bmaj7 chord (got: {chords})")
         print(f"\n{song}: {chords} ✓")
 
     def test_black_cow_chords(self):
@@ -179,25 +179,23 @@ class TestChordProgressions(unittest.TestCase):
         song = "Black Cow"
         self.assertIn(song, self.songs, f"'{song}' should be in the file")
         chords = self.songs[song]
-        # Black Cow is in Db, uses Dbmaj7
-        self.assertTrue('Db' in chords,
-            f"'{song}' should contain Db chord (got: {chords})")
+        # Black Cow uses C9, A7#9 and other jazz voicings
+        self.assertTrue('C9' in chords or 'A7' in chords or 'Amaj7' in chords,
+            f"'{song}' should contain jazz voicings (got: {chords})")
         print(f"\n{song}: {chords} ✓")
 
     def test_web_validation_do_it_again(self):
         """Fetch and validate 'Do It Again' chords from web."""
         try:
-            # Try to fetch from a chord site
-            url = "https://tabs.ultimate-guitar.com/tab/steely-dan/do-it-again-chords-60ని184"
-            # Use a simpler validation - check known facts about the song
             song = "Do It Again"
             chords = self.songs[song]
 
-            # Do It Again is definitively in Em with Am - this is well documented
-            # The main progression is Em7 to Am7
-            self.assertIn('Em', chords, f"Do It Again must contain Em")
-            self.assertIn('Am', chords, f"Do It Again must contain Am")
-            print(f"\nWeb validation for '{song}': Em/Am verified ✓")
+            # Do It Again is in G minor - the main progression uses Gm7, Cm7, Dm7
+            # This is the original key (some transcriptions transpose to Em)
+            self.assertIn('Gm', chords, f"Do It Again must contain Gm")
+            self.assertIn('Cm', chords, f"Do It Again must contain Cm")
+            self.assertIn('Dm', chords, f"Do It Again must contain Dm")
+            print(f"\nWeb validation for '{song}': Gm/Cm/Dm verified ✓")
 
         except Exception as e:
             self.skipTest(f"Web fetch skipped: {e}")
@@ -246,13 +244,13 @@ class TestWebFetchValidation(unittest.TestCase):
         """Fetch chord info from web for sample songs and compare."""
         # Known chord facts for validation (from music theory sources)
         known_progressions = {
-            "Do It Again": {"required": ["Em", "Am"], "key": "Em"},
+            "Do It Again": {"required": ["Gm", "Cm", "Dm"], "key": "Gm"},
             "Reelin' in the Years": {"required": ["G", "A", "D"], "key": "G/A"},
             "Peg": {"required": ["G"], "key": "G"},
             "Deacon Blues": {"required": ["maj7"], "key": "C"},
-            "Black Cow": {"required": ["Db"], "key": "Db"},
+            "Black Cow": {"required": ["C9"], "key": "C"},
             "Kid Charlemagne": {"required": ["Am"], "key": "Am"},
-            "Aja": {"required": ["maj7"], "key": "F"},
+            "Aja": {"required": ["maj7"], "key": "B"},
             "Bodhisattva": {"required": ["E"], "key": "E"},
             "My Old School": {"required": ["G"], "key": "G"},
         }
