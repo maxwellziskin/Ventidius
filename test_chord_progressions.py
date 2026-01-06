@@ -149,9 +149,9 @@ class TestChordProgressions(unittest.TestCase):
         song = "Hey Nineteen"
         self.assertIn(song, self.songs, f"'{song}' should be in the file")
         chords = self.songs[song]
-        # Hey Nineteen uses Am7 and maj7 chords
-        self.assertTrue('Am7' in chords or 'maj7' in chords,
-            f"'{song}' should contain Am7 or maj7 chords (got: {chords})")
+        # Hey Nineteen uses F#m7-Bm9-C#m7 vamp in D major
+        self.assertTrue('F#m7' in chords or 'Bm9' in chords,
+            f"'{song}' should contain F#m7 or Bm9 chords (got: {chords})")
         print(f"\n{song}: {chords} ✓")
 
     def test_aja_chords(self):
@@ -222,14 +222,14 @@ class TestChordProgressions(unittest.TestCase):
         print(f"\nWeb validation for '{song}': G major verified ✓")
 
     def test_web_validation_bodhisattva(self):
-        """Validate 'Bodhisattva' - rock E major."""
+        """Validate 'Bodhisattva' - rock in G major."""
         song = "Bodhisattva"
         self.assertIn(song, self.songs)
         chords = self.songs[song]
 
-        # Bodhisattva is a rocker in E
-        self.assertIn('E', chords, f"Bodhisattva should be in E (got: {chords})")
-        print(f"\nWeb validation for '{song}': E major verified ✓")
+        # Bodhisattva is actually in G major with G-F-C-Bb progression
+        self.assertIn('G', chords, f"Bodhisattva should be in G (got: {chords})")
+        print(f"\nWeb validation for '{song}': G major verified ✓")
 
 
 class TestWebFetchValidation(unittest.TestCase):
@@ -250,11 +250,15 @@ class TestWebFetchValidation(unittest.TestCase):
             "Deacon Blues": {"required": ["Cmaj7", "Bbmaj7"], "key": "C"},
             "Black Cow": {"required": ["C9"], "key": "C/A"},
             "Kid Charlemagne": {"required": ["Am"], "key": "Am"},
-            "Aja": {"required": ["maj7"], "key": "B"},
-            "Bodhisattva": {"required": ["E"], "key": "E"},
+            "Aja": {"required": ["Bmaj7"], "key": "B"},
+            "Bodhisattva": {"required": ["G", "F", "C"], "key": "G"},
             "My Old School": {"required": ["G"], "key": "G"},
             "Dirty Work": {"required": ["Bbm", "Db"], "key": "Db"},
-            "Hey Nineteen": {"required": ["Dmaj9"], "key": "D"},
+            "Hey Nineteen": {"required": ["F#m7", "Bm9"], "key": "D"},
+            "Haitian Divorce": {"required": ["Em"], "key": "Em"},
+            "Third World Man": {"required": ["Ab", "Fm"], "key": "Fm"},
+            "Godwhacker": {"required": ["Fm"], "key": "Fm"},
+            "Ruby Baby": {"required": ["F", "Bb"], "key": "F"},
         }
 
         print("\n" + "="*60)
