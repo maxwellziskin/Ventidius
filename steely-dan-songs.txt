@@ -1,126 +1,126 @@
 # Steely Dan & Solo Songs
 
 ## Can't Buy a Thrill (1972)
-Do It Again
-Dirty Work
-Kings
-Midnite Cruiser
-Only a Fool Would Say That
-Reelin' in the Years
-Fire in the Hole
-Brooklyn (Owes the Charmer Under Me)
-Change of the Guard
-Turn That Heartbeat Over Again
+Do It Again - Em7 | Am7 | Em7 | Am7
+Dirty Work - G | D/F# | Em | C
+Kings - A | E | F#m | D
+Midnite Cruiser - Am7 | D7 | Gmaj7 | Cmaj7
+Only a Fool Would Say That - Dmaj7 | Gmaj7 | Em7 | A7
+Reelin' in the Years - G | A | D | A
+Fire in the Hole - Cm | Fm | Bb | Eb
+Brooklyn (Owes the Charmer Under Me) - Amaj7 | Bm7 | E7 | Amaj7
+Change of the Guard - Dm7 | G7 | Cmaj7 | Fmaj7
+Turn That Heartbeat Over Again - Em7 | A7 | Dmaj7 | Gmaj7
 
 ## Countdown to Ecstasy (1973)
-Bodhisattva
-Razor Boy
-The Boston Rag
-Your Gold Teeth
-Show Biz Kids
-My Old School
-Pearl of the Quarter
-King of the World
+Bodhisattva - E | A | E | B
+Razor Boy - Gmaj7 | F#m7b5 | B7 | Em7
+The Boston Rag - Am7 | D7 | Gmaj7 | Cmaj7
+Your Gold Teeth - Cmaj7 | Bm7b5 | E7 | Am7
+Show Biz Kids - G7 | C7 | G7 | D7
+My Old School - G | C | G | D
+Pearl of the Quarter - Fmaj7 | Em7 | Dm7 | Cmaj7
+King of the World - Am | G | F | E
 
 ## Pretzel Logic (1974)
-Rikki Don't Lose That Number
-Night by Night
-Any Major Dude Will Tell You
-Barrytown
-East St. Louis Toodle-Oo
-Parker's Band
-Through with Buzz
-Pretzel Logic
-With a Gun
-Charlie Freak
-Monkey in Your Soul
+Rikki Don't Lose That Number - E | A | C#m | F#m
+Night by Night - Gm7 | C7 | Fmaj7 | Bbmaj7
+Any Major Dude Will Tell You - Gmaj7 | Cmaj7 | Am7 | D7
+Barrytown - E | A | B | E
+East St. Louis Toodle-Oo - Cm | Fm | G7 | Cm
+Parker's Band - A | D | E | A
+Through with Buzz - Am | G | F | E
+Pretzel Logic - A | D | E | A
+With a Gun - Em | Am | D | G
+Charlie Freak - Am7 | Dm7 | G7 | Cmaj7
+Monkey in Your Soul - E7 | A7 | B7 | E7
 
 ## Katy Lied (1975)
-Black Friday
-Bad Sneakers
-Rose Darling
-Daddy Don't Live in That New York City No More
-Doctor Wu
-Everyone's Gone to the Movies
-Your Gold Teeth II
-Chain Lightning
-Any World (That I'm Welcome To)
-Throw Back the Little Ones
+Black Friday - Am7 | D7 | Gmaj7 | Cmaj7
+Bad Sneakers - Fmaj7 | Gm7 | Am7 | Bbmaj7
+Rose Darling - Gmaj7 | Am7 | Bm7 | Cmaj7
+Daddy Don't Live in That New York City No More - G | C | D | G
+Doctor Wu - Am7 | Gmaj7 | Fmaj7 | E7
+Everyone's Gone to the Movies - Cmaj7 | Am7 | Dm7 | G7
+Your Gold Teeth II - Am7 | Bm7b5 | E7 | Am7
+Chain Lightning - Dm7 | G7 | Cmaj7 | Am7
+Any World (That I'm Welcome To) - Gmaj7 | Em7 | Am7 | D7
+Throw Back the Little Ones - Ebmaj7 | Cm7 | Fm7 | Bb7
 
 ## The Royal Scam (1976)
-Kid Charlemagne
-The Caves of Altamira
-Don't Take Me Alive
-Sign in Stranger
-The Fez
-Green Earrings
-Haitian Divorce
-Everything You Did
-The Royal Scam
+Kid Charlemagne - Am7 | G | Fmaj7 | E7
+The Caves of Altamira - Gmaj7 | Em7 | Am7 | D7
+Don't Take Me Alive - Em7 | Am7 | D7 | Gmaj7
+Sign in Stranger - Cm7 | Fm7 | Bb7 | Ebmaj7
+The Fez - F#m7 | Bm7 | E7 | Amaj7
+Green Earrings - Am7 | D7 | Gmaj7 | Cmaj7
+Haitian Divorce - F | Bb | C | F
+Everything You Did - Am7 | Dm7 | G7 | Cmaj7
+The Royal Scam - Em | Am | D | G
 
 ## Aja (1977)
-Black Cow
-Aja
-Deacon Blues
-Peg
-Home at Last
-I Got the News
-Josie
+Black Cow - Dbmaj7 | Bbm7 | Ebm7 | Ab7
+Aja - Fmaj7 | Em7 | Dm7 | Cmaj7
+Deacon Blues - Cmaj7 | Gmaj7 | Am7 | Em7
+Peg - G | Gmaj7 | Fmaj7 | Em7
+Home at Last - Dm7 | Em7 | Fmaj7 | G7
+I Got the News - Bbmaj7 | Am7 | Gm7 | Fmaj7
+Josie - Gmaj7 | F#m7b5 | B7 | Em7
 
 ## Gaucho (1980)
-Babylon Sisters
-Hey Nineteen
-Glamour Profession
-Gaucho
-Time Out of Mind
-My Rival
-Third World Man
+Babylon Sisters - Am7 | D7 | Gmaj7 | Cmaj7
+Hey Nineteen - Am7 | Gmaj7 | Fmaj7 | E7
+Glamour Profession - Fm7 | Bb7 | Ebmaj7 | Abmaj7
+Gaucho - Am7 | Bm7 | Cmaj7 | D7
+Time Out of Mind - Bbmaj7 | Am7 | Gm7 | Fmaj7
+My Rival - Dm7 | G7 | Cmaj7 | Am7
+Third World Man - Am | G | F | E
 
 ## Two Against Nature (2000)
-Gaslighting Abbie
-What a Shame About Me
-Two Against Nature
-Janie Runaway
-Almost Gothic
-Jack of Speed
-Cousin Dupree
-Negative Girl
-West of Hollywood
+Gaslighting Abbie - Am7 | D7 | Gmaj7 | Cmaj7
+What a Shame About Me - Fmaj7 | Em7 | Dm7 | G7
+Two Against Nature - Em7 | Am7 | D7 | Gmaj7
+Janie Runaway - Bbmaj7 | Am7 | Gm7 | C7
+Almost Gothic - Dm7 | G7 | Cmaj7 | Fmaj7
+Jack of Speed - Am7 | Gmaj7 | Fmaj7 | E7
+Cousin Dupree - G | C | D | G
+Negative Girl - Fm7 | Bbm7 | Eb7 | Abmaj7
+West of Hollywood - Cmaj7 | Bm7b5 | E7 | Am7
 
 ## Everything Must Go (2003)
-The Last Mall
-Things I Miss the Most
-Blues Beach
-Godwhacker
-Slang of Ages
-Green Book
-Pixeleen
-Lunch with Gina
-Everything Must Go
+The Last Mall - Am7 | D7 | Gmaj7 | Cmaj7
+Things I Miss the Most - Fmaj7 | Em7 | Dm7 | Cmaj7
+Blues Beach - Gm7 | C7 | Fmaj7 | Bbmaj7
+Godwhacker - Em7 | Am7 | B7 | Em7
+Slang of Ages - Dm7 | G7 | Cmaj7 | Am7
+Green Book - Bbmaj7 | Am7 | Gm7 | Fmaj7
+Pixeleen - Am7 | D7 | Gmaj7 | Em7
+Lunch with Gina - Fmaj7 | Gm7 | Am7 | Bbmaj7
+Everything Must Go - Cmaj7 | Am7 | Dm7 | G7
 
 ---
 
 # Solo Albums
 
 ## Donald Fagen - The Nightfly (1982)
-I.G.Y. (What a Beautiful World)
-Green Flower Street
-Ruby Baby
-Maxine
-New Frontier
-The Nightfly
-The Goodbye Look
-Walk Between Raindrops
+I.G.Y. (What a Beautiful World) - Fmaj7 | Gm7 | Am7 | Bbmaj7
+Green Flower Street - Em7 | Am7 | D7 | Gmaj7
+Ruby Baby - A | D | E | A
+Maxine - Gmaj7 | Am7 | Bm7 | Cmaj7
+New Frontier - Am7 | Dm7 | Gmaj7 | Cmaj7
+The Nightfly - Fmaj7 | Em7 | Dm7 | Cmaj7
+The Goodbye Look - Bbmaj7 | Am7 | Gm7 | Fmaj7
+Walk Between Raindrops - Cmaj7 | Am7 | Dm7 | G7
 
 ## Walter Becker - 11 Tracks of Whack (1994)
-Down in the Bottom
-Junkie Girl
-Surf and/or Die
-Book of Liars
-Lucky Henry
-Hard Up Case
-Cringemaker
-Girlfriend
-My Waterloo
-This Moody Bastard
-Hat Too Flat
+Down in the Bottom - Em7 | Am7 | D7 | G
+Junkie Girl - Am7 | D7 | Gmaj7 | Cmaj7
+Surf and/or Die - E | A | B | E
+Book of Liars - Dm7 | G7 | Cmaj7 | Fmaj7
+Lucky Henry - Gm7 | C7 | Fmaj7 | Bbmaj7
+Hard Up Case - Am7 | Em7 | Dm7 | G7
+Cringemaker - Em7 | Am7 | Bm7 | E7
+Girlfriend - Gmaj7 | Cmaj7 | Am7 | D7
+My Waterloo - Fmaj7 | Bbmaj7 | Gm7 | C7
+This Moody Bastard - Am7 | Dm7 | E7 | Am7
+Hat Too Flat - Dm7 | G7 | Cmaj7 | Am7
