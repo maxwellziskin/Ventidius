@@ -99,9 +99,9 @@ class TestChordProgressions(unittest.TestCase):
         song = "Reelin' in the Years"
         self.assertIn(song, self.songs, f"'{song}' should be in the file")
         chords = self.songs[song]
-        # This song is in G/A/D
-        self.assertTrue('G' in chords or 'A' in chords or 'D' in chords,
-            f"'{song}' should contain G, A, or D chords (got: {chords})")
+        # This song is in A Mixolydian with D-A/C#-Bm-A verse pattern
+        self.assertTrue('D' in chords and 'A' in chords and 'Bm' in chords,
+            f"'{song}' should contain D, A, and Bm chords (got: {chords})")
         print(f"\n{song}: {chords} ✓")
 
     def test_peg_chords(self):
@@ -109,9 +109,9 @@ class TestChordProgressions(unittest.TestCase):
         song = "Peg"
         self.assertIn(song, self.songs, f"'{song}' should be in the file")
         chords = self.songs[song]
-        # Peg uses G and maj7 chords extensively
-        self.assertTrue('G' in chords or 'maj7' in chords,
-            f"'{song}' should contain G or maj7 chords (got: {chords})")
+        # Peg uses G6/9 and F#7#9 in the signature descending intro
+        self.assertTrue('G' in chords and 'F#7' in chords,
+            f"'{song}' should contain G6/9 and F#7#9 chords (got: {chords})")
         print(f"\n{song}: {chords} ✓")
 
     def test_deacon_blues_chords(self):
@@ -245,14 +245,16 @@ class TestWebFetchValidation(unittest.TestCase):
         # Known chord facts for validation (from music theory sources)
         known_progressions = {
             "Do It Again": {"required": ["Gm", "Cm", "Dm"], "key": "Gm"},
-            "Reelin' in the Years": {"required": ["G", "A", "D"], "key": "G/A"},
-            "Peg": {"required": ["G"], "key": "G"},
-            "Deacon Blues": {"required": ["maj7"], "key": "C"},
-            "Black Cow": {"required": ["C9"], "key": "C"},
+            "Reelin' in the Years": {"required": ["D", "A", "Bm"], "key": "A Mixolydian"},
+            "Peg": {"required": ["G", "F#7"], "key": "G"},
+            "Deacon Blues": {"required": ["Cmaj7", "Bbmaj7"], "key": "C"},
+            "Black Cow": {"required": ["C9"], "key": "C/A"},
             "Kid Charlemagne": {"required": ["Am"], "key": "Am"},
             "Aja": {"required": ["maj7"], "key": "B"},
             "Bodhisattva": {"required": ["E"], "key": "E"},
             "My Old School": {"required": ["G"], "key": "G"},
+            "Dirty Work": {"required": ["Bbm", "Db"], "key": "Db"},
+            "Hey Nineteen": {"required": ["Dmaj9"], "key": "D"},
         }
 
         print("\n" + "="*60)

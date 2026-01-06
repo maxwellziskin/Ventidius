@@ -2,11 +2,11 @@
 
 ## Can't Buy a Thrill (1972)
 Do It Again - Gm7 | Cm7 | Dm7 | Gm7 | Cm | Dm | Ebmaj7 | Gm
-Dirty Work - Am | Dm | G | C | F | Bb | C | G
+Dirty Work - Bbm7 | Ebm7 | Ab7 | Dbmaj7 | Gb | B | Db | Ab
 Kings - A | E | F#m | D | A | E | Bm | A
 Midnite Cruiser - Am7 | D7 | Gmaj7 | Cmaj7 | Fmaj7 | Bm7 | E7 | Am7
 Only a Fool Would Say That - Dmaj7 | Gmaj7 | Em7 | A7 | Dmaj7 | Bm7 | Em7 | A7
-Reelin' in the Years - G | A | D | A | Gmaj7 | F#m7 | Bm | A
+Reelin' in the Years - D | A/C# | Bm | A | Gmaj7 | F#m7 | Aadd2 | A
 Fire in the Hole - Cm | Fm | Bb | Eb | Ab | G7 | Cm | Fm
 Brooklyn (Owes the Charmer Under Me) - Amaj7 | Bm7 | E7 | Amaj7 | Dmaj7 | C#m7 | F#m7 | E7
 Change of the Guard - Dm7 | G7 | Cmaj7 | Fmaj7 | Bm7b5 | E7 | Am7 | G7
@@ -23,7 +23,7 @@ Pearl of the Quarter - Fmaj7 | Em7 | Dm7 | Cmaj7 | Bbmaj7 | Am7 | Dm7 | G7
 King of the World - Am | G | F | E | Am | G | Dm | E7
 
 ## Pretzel Logic (1974)
-Rikki Don't Lose That Number - D | A | E | A | F#m7 | G | A | E
+Rikki Don't Lose That Number - D | A | E | A | Amaj7 | G#m7 | C#m7 | E
 Night by Night - Gm7 | C7 | Fmaj7 | Bbmaj7 | Ebmaj7 | Am7 | D7 | Gm7
 Any Major Dude Will Tell You - Gmaj7 | Cmaj7 | Am7 | D7 | Em7 | A7 | Gmaj7 | D7
 Barrytown - E | A | B | E | C#m | A | B | E
@@ -61,15 +61,15 @@ The Royal Scam - Em | Am | D | G | C | Am | B7 | Em
 ## Aja (1977)
 Black Cow - C9 | A7#9 | C/D | E7#9 | Amaj7 | Gmaj7 | Dmaj7 | D/E
 Aja - Bmaj7 | E/F# | C#m7 | F#7 | Emaj7 | D#m7 | C#m7 | Bmaj7
-Deacon Blues - Cmaj7 | G/B | Bbmaj7 | F/A | Am7 | Em7 | Fmaj7 | G7
-Peg - Gmaj9 | F#7#9 | Fmaj9 | E7#9 | Cmaj7 | G/B | Am7 | D7
+Deacon Blues - Cmaj7 | Gsus2/B | Bbmaj7 | Fsus2/A | Am7 | Em7 | Fmaj7 | G7
+Peg - G6/9 | F#7#9 | F6/9 | E7#9 | Eb6/9 | D7#9 | Cmaj7 | D7
 Home at Last - Dm7 | Em7 | Fmaj7 | G7 | Am7 | Bm7b5 | E7 | Am7
 I Got the News - Bbmaj7 | Am7 | Gm7 | Fmaj7 | Cm7 | F7 | Bbmaj7 | Am7
 Josie - Em7 | A7 | G/C | D/G | C/F | Em7 | F#7#9 | Em7
 
 ## Gaucho (1980)
-Babylon Sisters - Bbm7 | Cm7 | Eb9 | Ab13 | Dm7 | Eb | F | Bbmaj7
-Hey Nineteen - D7 | G | A7 | D7 | F#m7 | Bm7 | Gmaj7 | C#7
+Babylon Sisters - Bbm7 | Cm7 | Eb9 | Dbmaj9 | Ab13 | Gm7 | Cm7 | Bbmaj7
+Hey Nineteen - Dmaj9 | G | A9 | Dmaj9 | F#m7 | Bm9 | Gmaj7 | C#7#9
 Glamour Profession - Fm7 | Bb7 | Ebmaj7 | Abmaj7 | Dbmaj7 | Cm7 | Fm7 | Bb7
 Gaucho - Am7 | Bm7 | Cmaj7 | D7 | Em7 | F#m7b5 | Gmaj7 | Am7
 Time Out of Mind - Bbmaj7 | Am7 | Gm7 | Fmaj7 | Ebmaj7 | Dm7 | Cm7 | F7
