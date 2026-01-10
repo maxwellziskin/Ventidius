@@ -1,0 +1,51 @@
+# /opt/ziskin/config.yaml
+# Ziskin Field Systems - Edge Device Configuration
+
+site_id: "site-abc123"
+site_name: "Example Site"
+
+cloud:
+  api_endpoint: "https://api.zfs.example.com"
+  wireguard_endpoint: "wg.zfs.example.com:51820"
+  api_key: "${ZFS_API_KEY}"  # Set via environment variable
+
+storage:
+  path: /mnt/recordings
+  retention_days: 90
+  max_usage_percent: 90
+
+mediamtx:
+  rtsp_port: 8554
+  hls_port: 8888
+  config_path: /opt/ziskin/mediamtx.yml
+
+health:
+  report_interval_seconds: 30
+  camera_check_interval_seconds: 60
+
+recording:
+  segment_duration_minutes: 30
+  timestamp_format: "%Y-%m-%d %H:%M:%S"
+  timestamp_position: "top-left"
+  timestamp_font_size: 24
+
+cameras:
+  - id: cam-01
+    name: "Front Gate"
+    ip: 192.168.1.101
+    rtsp_main: /Streaming/Channels/101
+    rtsp_sub: /Streaming/Channels/102
+    onvif_port: 80
+    username: admin
+    password: "${CAM_01_PASSWORD}"  # Set via environment variable
+    ptz: true
+
+  - id: cam-02
+    name: "Driveway"
+    ip: 192.168.1.102
+    rtsp_main: /Streaming/Channels/101
+    rtsp_sub: /Streaming/Channels/102
+    onvif_port: 80
+    username: admin
+    password: "${CAM_02_PASSWORD}"
+    ptz: true

@@ -1,0 +1,30 @@
+[Unit]
+Description=Ziskin Field Systems Edge Orchestrator
+Documentation=https://github.com/ziskin-field-systems/edge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=zfs
+Group=zfs
+WorkingDirectory=/opt/ziskin
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/opt/ziskin/.env
+ExecStart=/opt/ziskin/venv/bin/python -m orchestrator.main -c /opt/ziskin/config.yaml
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=zfs-orchestrator
+
+# Security settings
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/ziskin /mnt/recordings /var/log/ziskin
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target
