@@ -1,0 +1,140 @@
+# Tracked destination list for Flightwatch MVP
+# Modify enabled: false to disable a destination without deleting it
+# hard_cap_usd: maximum price you'd pay for a round-trip economy fare
+# priority_weight: 1.0 = normal, higher = preferred destination
+
+destinations:
+  - city_name: "Mexico City"
+    airport_code: "MEX"
+    country: "Mexico"
+    region: "Mexico"
+    priority_weight: 1.2
+    hard_cap_usd: 400
+    enabled: true
+    notes: "Good food and culture hub"
+
+  - city_name: "Cancun"
+    airport_code: "CUN"
+    country: "Mexico"
+    region: "Mexico"
+    priority_weight: 1.0
+    hard_cap_usd: 350
+    enabled: true
+    notes: "Beach destination"
+
+  - city_name: "Oaxaca"
+    airport_code: "OAX"
+    country: "Mexico"
+    region: "Mexico"
+    priority_weight: 1.3
+    hard_cap_usd: 450
+    enabled: true
+    notes: "High priority cultural destination"
+
+  - city_name: "Puerto Vallarta"
+    airport_code: "PVR"
+    country: "Mexico"
+    region: "Mexico"
+    priority_weight: 1.0
+    hard_cap_usd: 380
+    enabled: true
+    notes: "Pacific coast beach"
+
+  - city_name: "Guadalajara"
+    airport_code: "GDL"
+    country: "Mexico"
+    region: "Mexico"
+    priority_weight: 0.9
+    hard_cap_usd: 420
+    enabled: true
+    notes: "Mexico's second city"
+
+  - city_name: "Bogota"
+    airport_code: "BOG"
+    country: "Colombia"
+    region: "South America"
+    priority_weight: 1.1
+    hard_cap_usd: 500
+    enabled: true
+    notes: "Great food scene, cultural hub"
+
+  - city_name: "Medellin"
+    airport_code: "MDE"
+    country: "Colombia"
+    region: "South America"
+    priority_weight: 1.2
+    hard_cap_usd: 520
+    enabled: true
+    notes: "Top South America destination"
+
+  - city_name: "Cartagena"
+    airport_code: "CTG"
+    country: "Colombia"
+    region: "South America"
+    priority_weight: 1.1
+    hard_cap_usd: 550
+    enabled: true
+    notes: "Historic coastal city"
+
+  - city_name: "Lima"
+    airport_code: "LIM"
+    country: "Peru"
+    region: "South America"
+    priority_weight: 1.2
+    hard_cap_usd: 550
+    enabled: true
+    notes: "Great food city, gateway to Machu Picchu"
+
+  - city_name: "Cusco"
+    airport_code: "CUZ"
+    country: "Peru"
+    region: "South America"
+    priority_weight: 1.0
+    hard_cap_usd: 650
+    enabled: true
+    notes: "Machu Picchu gateway"
+
+  - city_name: "Buenos Aires"
+    airport_code: "EZE"
+    country: "Argentina"
+    region: "South America"
+    priority_weight: 1.1
+    hard_cap_usd: 700
+    enabled: true
+    notes: "Major South American cultural capital"
+
+  - city_name: "Santiago"
+    airport_code: "SCL"
+    country: "Chile"
+    region: "South America"
+    priority_weight: 1.0
+    hard_cap_usd: 650
+    enabled: true
+    notes: "Gateway to Patagonia and wine country"
+
+  - city_name: "Rio de Janeiro"
+    airport_code: "GIG"
+    country: "Brazil"
+    region: "South America"
+    priority_weight: 1.1
+    hard_cap_usd: 700
+    enabled: true
+    notes: "Iconic beach city"
+
+  - city_name: "Sao Paulo"
+    airport_code: "GRU"
+    country: "Brazil"
+    region: "South America"
+    priority_weight: 0.9
+    hard_cap_usd: 680
+    enabled: true
+    notes: "Business hub, gateway to Brazil"
+
+  - city_name: "Quito"
+    airport_code: "UIO"
+    country: "Ecuador"
+    region: "South America"
+    priority_weight: 1.0
+    hard_cap_usd: 520
+    enabled: true
+    notes: "Gateway to Galapagos"

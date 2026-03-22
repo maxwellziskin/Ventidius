@@ -1,0 +1,79 @@
+# Flightwatch operational settings
+# Edit these to tune behavior without code changes
+
+origins:
+  - EWR
+  - LGA
+  - JFK
+
+trip_type: "round_trip"
+cabin: "economy"
+
+# Trip-length buckets (inclusive, in nights)
+trip_length_buckets:
+  short:
+    min: 3
+    max: 5
+  medium:
+    min: 6
+    max: 9
+  long:
+    min: 10
+    max: 16
+
+# Booking window buckets (days until departure)
+booking_window_buckets:
+  near:
+    min: 21
+    max: 60
+  mid:
+    min: 61
+    max: 120
+  far:
+    min: 121
+    max: 180
+
+# Maximum stops
+max_stops: 1
+
+# Scoring adjustments (additive to base score)
+scoring:
+  nonstop_bonus: 15
+  one_stop_penalty: -5
+  two_plus_stop_penalty: -25
+  self_transfer_penalty: -40
+  airport_change_penalty: -30
+  ugly_schedule_penalty: -10   # red-eye, very long layover, etc.
+  near_booking_window_penalty: -5  # 21-30 days, short notice
+
+  # Threshold to decide alert level
+  watch_threshold: 30
+  deal_threshold: 55
+  book_now_threshold: 75
+
+# Alert suppression
+alerting:
+  # Default cooldown: don't re-alert same route/date cluster within N days
+  repeat_cooldown_days: 7
+  # Minimum additional price drop to re-alert (absolute dollars)
+  realert_min_drop_usd: 50
+  # Minimum additional drop as fraction of previous price to re-alert
+  realert_min_drop_fraction: 0.10
+
+  # Which decision levels trigger push notifications
+  push_on:
+    - deal
+    - book_now
+  # watch is logged but not pushed by default
+  log_watch: true
+
+# Notification channel: "pushover" or "telegram"
+notification_channel: "pushover"
+
+# History settings
+history:
+  meaningful_discount_fraction: 0.20   # 20% below median = notable
+  exceptional_deal_fraction: 0.30       # 30% below median = exceptional
+  min_samples_for_history: 5            # ignore history stats below this count
+  window_days_short: 30
+  window_days_long: 90
